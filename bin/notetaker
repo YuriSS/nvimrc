@@ -1,0 +1,14 @@
+#!/bin/bash
+
+current_date="$(date +%Y-%m-%d)"
+note_file_name="$HOME/Documents/notes/src/note-$current_date.md"
+
+if [ ! -f $note_file_name ]; then
+  echo "# Notes for $current_date" > $note_file_name
+fi
+
+tmux display-popup -E "nvim -c 'norm Go' \
+  -c 'norm Go## $(date +%H:%M) - $1' \
+  -c 'norm G2o' \
+  -c 'norm zz' \
+  -c 'startinsert' $note_file_name"

@@ -41,6 +41,7 @@ My keymaps for reference. The leader key is configured to be SPACE
 
 To create a note without leaving vim. Tmux installed is needed. It create one file note per day.
 It use a script created inside bin folder. Put the notetaker script as executable and move to a PATH directory
+
 [TODO]
   * set a env variable to configure save files path directory 
   * menu to choose a note file
@@ -55,8 +56,11 @@ It use a script created inside bin folder. Put the notetaker script as executabl
 
 To mark a buffer and jump to it by pressing a key. It is configured to have 4 marks.
 
-| Keymap    | Command                      | Description                                   |
-|-----------|------------------------------|-----------------------------------------------|
+[TODO]
+  * Create a menu to show buffer markeds
+
+| Keymap    | Command                      | Description                           |
+|-----------|------------------------------|---------------------------------------|
 | leader mm | marks.mark_file              | Mark current buffer on next free slot |
 | leader mr | marks.remove_current_file    | Remove current buffer as marked file  |
 | leader ma | marks.mark_file(1)           | Mark current buffer on mark 1         |

@@ -24,7 +24,7 @@ keymap('n', '<leader>N', ':!notetaker<Enter>')
 vim.api.nvim_set_keymap('n', '<leader>n', '', { callback = function () notes.take_note() end })
 vim.api.nvim_set_keymap('n', '<leader>rn', '', { callback = function () notes.read_last_note() end })
 
-vim.api.nvim_set_keymap('n', '<leader>mf', '', { callback = function () marks.mark_file() end })
+vim.api.nvim_set_keymap('n', '<leader>mm', '', { callback = function () marks.mark_file() end })
 vim.api.nvim_set_keymap('n', '<leader>mr', '', { callback = function () marks.remove_current_file() end })
 vim.api.nvim_set_keymap('n', '<leader>ma', '', { callback = function () marks.mark_file(1) end })
 vim.api.nvim_set_keymap('n', '<leader>ms', '', { callback = function () marks.mark_file(2) end })
