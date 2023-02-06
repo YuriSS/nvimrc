@@ -2,8 +2,8 @@ local M = {}
 
 function M.take_note()
   local filename = vim.api.nvim_buf_get_name(0)
-  local r,c = unpack(vim.api.nvim_win_get_cursor(0))
-  local command = "notetaker " .. filename .. ":" .. r .. ":" .. c
+  local r, _ = unpack(vim.api.nvim_win_get_cursor(0))
+  local command = "notetaker " .. filename .. ":" .. r
   io.popen(command)
 end
 

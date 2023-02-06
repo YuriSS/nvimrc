@@ -7,6 +7,9 @@ return require('packer').startup(function(use)
 		'rose-pine/neovim',
 		as = 'rose-pine',
 	})
+  use { 'ellisonleao/gruvbox.nvim' }
+  use 'Mofiqul/dracula.nvim'
+  use 'bluz71/vim-nightfly-colors'
 
   use {
 		'junegunn/fzf',
@@ -18,6 +21,9 @@ return require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
 
   use('prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' })
+
+  use { 'mfussenegger/nvim-dap' }
+  use { 'David-Kunz/jester' }
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',

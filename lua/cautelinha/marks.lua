@@ -34,12 +34,18 @@ end
 
 function M.mark_file(index)
   local next = index or get_next_index()
+  local message = nil
   if next ~= nil then
-    marked_files[vim.api.nvim_buf_get_name(0)] = next
-    print('File marked with index ' .. next)
+    local file_name = vim.api.nvim_buf_get_name(0)
+    if marked_files[file_name] ~= nil then
+      marked_files[file_name] = nil
+    end
+    marked_files[file_name] = next
+    message = 'File marked with index ' .. next
   else
-    print('Marked files list is full')
+    message = 'Marked files list is full'
   end
+  print(message)
 end
 
 function M.list_marked_files()
@@ -86,9 +92,10 @@ function M.menu()
     anchor = 'NW',
     style = 'minimal',
   }
-  vim.api.nvim_open_win(buf, 1, opts)
+  vim.api.nvim_open_win(buf, true, opts)
   for file_name, offset in pairs(marked_files) do
-    vim.api.nvim_buf_set_text(buf, offset, 1, offset, 1, {file_name})
+    local line = '[' .. offset .. '] ' .. file_name
+    vim.api.nvim_buf_set_lines(buf, 0, 0, false, { line })
   end
 end
 
