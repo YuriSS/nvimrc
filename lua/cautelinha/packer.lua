@@ -7,6 +7,10 @@ return require('packer').startup(function(use)
 		'rose-pine/neovim',
 		as = 'rose-pine',
 	})
+  use { 'ellisonleao/gruvbox.nvim' }
+  use 'Mofiqul/dracula.nvim'
+  use 'bluz71/vim-nightfly-colors'
+  use 'luisiacc/gruvbox-baby'
 
   use {
 		'junegunn/fzf',
@@ -18,6 +22,18 @@ return require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
 
   use('prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' })
+
+  use {
+    'mfussenegger/nvim-dap',
+    requires = {
+      "rcarriga/nvim-dap-ui",
+      "nvim-treesitter/nvim-treesitter",
+      "theHamsta/nvim-dap-virtual-text",
+      "mxsdev/nvim-dap-vscode-js",
+    }
+  }
+
+  use { 'David-Kunz/jester' }
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
@@ -41,4 +57,21 @@ return require('packer').startup(function(use)
 			{'rafamadriz/friendly-snippets'},
 		}
 	}
+
+  -- use 'BlackLight/nvim-http'
+  use '~/workspace/tests/nvim-http/'
+
+  use {
+  "nvim-neo-tree/neo-tree.nvim",
+    branch = "v3.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
+  }
+
+  use 'tpope/vim-dadbod'
+  use 'kristijanhusak/vim-dadbod-ui'
+  use 'kristijanhusak/vim-dadbod-completion'
 end)
